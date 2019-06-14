@@ -1,0 +1,32 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>netcoreapp3.0</TargetFramework>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="BlackScreen.xaml" />
+    <None Remove="SettingWindow.xaml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="BlackScreen.xaml.cs">
+      <DependentUpon>BlackScreen.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="SettingWindow.xaml.cs">
+      <DependentUpon>SettingWindow.xaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Page Update="BlackScreen.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="SettingWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+
+</Project>
