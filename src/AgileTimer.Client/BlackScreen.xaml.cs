@@ -9,7 +9,7 @@ namespace AgileTimer.Client
 {
 	public partial class BlackScreen : Window
 	{
-		public MainWindow MainWindow { get; set; }
+		public SettingWindow SettingWindow { get; set; }
 
 		public DateTime WindowOpenTime { get; set; }
 		//public BlackScreen()
@@ -17,10 +17,10 @@ namespace AgileTimer.Client
 		//	InitializeComponent();
 		//}
 
-		public BlackScreen(string msg, MainWindow main)
+		public BlackScreen(string msg, SettingWindow main)
 		{
 			InitializeComponent();
-			MainWindow = main;
+            SettingWindow = main;
 			WindowOpenTime = DateTime.Now;
 			NewMethod(msg);
 			closeBlackScreen();
@@ -39,17 +39,17 @@ namespace AgileTimer.Client
 
 		private void T_Elapsed(object sender, ElapsedEventArgs e)
 		{
-			if ((DateTime.Now - WindowOpenTime)>= MainWindow.BlackScreenTime)
+			if ((DateTime.Now - WindowOpenTime)>= SettingWindow.BlackScreenTime)
 			{
 				Dispatcher.BeginInvoke(new Action(() =>
 				{
 					t.Enabled = false;
 					Close();
-					if (!MainWindow.IsClosed)
+					if (!SettingWindow.IsClosed)
 					{
-						MainWindow.WindowState = WindowState.Minimized;
-						MainWindow.ShowInTaskbar = true;
-						MainWindow.Show();
+                        SettingWindow.WindowState = WindowState.Minimized;
+                        SettingWindow.ShowInTaskbar = true;
+                        SettingWindow.Show();
 					}
 				}));
 			}
@@ -71,9 +71,9 @@ namespace AgileTimer.Client
 
 		private void Button_Click(object sender, RoutedEventArgs e)
 		{
-			if (!MainWindow.IsClosed) {
-				MainWindow.ShowInTaskbar = true;
-				MainWindow.Show();
+			if (!SettingWindow.IsClosed) {
+                SettingWindow.ShowInTaskbar = true;
+                SettingWindow.Show();
 			}
 			Close();
 		}

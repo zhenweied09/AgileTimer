@@ -44,7 +44,7 @@ namespace AgileTimer.Server
                 app.UseHsts();
             }
 
-            app.UseHttpsRedirection();
+            //app.UseHttpsRedirection();
 
             app.UseRouting(routes =>
             {
